@@ -1,0 +1,16 @@
+#首字母大写为类名，类名对应表名。
+ChatUserInfo=tb_user_info
+#主键属性
+pkId=u_id
+#首字母小写为属性名，属性名对应列名。
+userId=u_id
+userName=u_name
+userPwd=u_pwd
+userNick=u_nick
+userImg=u_img
+userEmail=u_email
+userPhone=u_phone
+userCardId=u_card_id
+userRegisterTime=u_register_time
+userState=u_state
+userRemark=u_remark

@@ -1,0 +1,8 @@
+ChatMessageInfo=tb_chat_message
+pkId=c_id
+messageId=c_id
+sendId=c_send_id
+receiverId=c_receiver_id
+sendContent=c_send_content
+sendTime=c_send_time
+remark=c_remark
