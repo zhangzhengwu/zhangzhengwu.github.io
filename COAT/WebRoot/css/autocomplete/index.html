@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动完成测试</title>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery.autocomplete.js" type="text/javascript"></script>
+<script src="localdata_admin.js?session=Math.random()" type="text/javascript"></script><!--加变量参数是为了避免缓存,但如果不更新就可以去掉变量-->
+<link href="jquery.autocomplete.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(function(){
+	$("#input").autocomplete(admin_user, {
+		minChars: 1,					//最少输入字条
+		max: 12,
+		autoFill: false,				//是否选多个,用","分开
+		mustMatch: false,				//是否全匹配, 如数据中没有此数据,将无法输入
+		matchContains: true,			//是否全文搜索,否则只是前面作为标准
+		scrollHeight: 220,
+		width:500,
+		multiple:false,
+		formatItem: function(row, i, max) {					//显示格式
+			return "<span style='width:140px'>"+row.key+"</span><span style='width:120px'>"+row.name+"</span><span style='width:120px'>"+row.group+"</span><span>"+row.club+"</span>";
+		},
+		formatMatch: function(row, i, max) {				//以什么数据作为搜索关键词,可包括中文,
+		   return row.keyname;
+
+		},
+		formatResult: function(row) {						//返回结果
+			return row.key;
+		}
+	});
+	
+	
+	 $("#input").result(function(event, row, formatted) {				//额外触发,可不要
+        $("#output").val(row.id) ;
+		//更多操作
+     });
+	
+})
+
+
+</script>
+</head>
+
+<body>
+
+	
+<p>&nbsp;</p>
+<p>请输入信息</p>
+<p>
+	<input type="text" name="input" id="input" />
+</p>
+<p>额外触发信息</p>
+<p>
+	<input type="text" name="output" id="output" />
+</p>
+</body>
+</html>

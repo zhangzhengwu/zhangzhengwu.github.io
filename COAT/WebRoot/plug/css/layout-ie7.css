@@ -1,0 +1,15 @@
+/* cont-info板块>>>>>>>>>>>>>> */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<< */
+
+/* 登陆板块>>>>>>>>>>>>>> */
+.cont-info{float:right;width:99%;padding-left:12px;}
+
+.lg-board{width:420px;padding:0 20px;border:1px solid #ddd; color:#000; margin-top:40px; border-radius:8px;background: #f6f6f6;font:11px/1.5em 'Microsoft YaHei' ;position: absolute;left:50%;top:50%;margin-left:-240px;margin-top:-136px;}
+.lg-board .lg-input input[type='text'], .lg-board .lg-input input[type='password']{height:18px;}
+.lg-board .lg-input table .btn-primary{float:right;margin-right:30px;padding: 0px 18px;}
+
+.info-search table input[type="text"]{height:14px;padding-top:0px;width:165px;}
+
+
+/* <<<<<<<<<<<<<<<<< */

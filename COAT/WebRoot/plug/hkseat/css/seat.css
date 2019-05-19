@@ -1,0 +1,287 @@
+.td0 {
+	background-color: white
+}
+
+.td1 {
+	background-color: rgb(51, 153, 102) !important;
+	cursor: pointer;
+}
+
+.td2 {
+	background-color: rgb(102, 102, 153) !important;
+	cursor: pointer;
+}
+
+.td3 {
+	background-color: rgb(255, 102, 0) !important;
+	cursor: pointer;
+}
+
+.td4 {
+	background-color: rgb(255, 153, 204) !important;
+	cursor: pointer;
+}
+
+.td5 {
+	background-color: rgb(255, 204, 0) !important;
+	cursor: pointer;
+}
+
+.td6 {
+	background-color: rgb(153, 204, 0) !important;
+	cursor: pointer;
+}
+
+.td7 {
+	background-color: rgb(51, 204, 204) !important;
+	cursor: pointer;
+}
+
+.td8 {
+	background-color: red !important;
+	cursor: pointer;
+}
+
+.td9 {
+	background-color: rgb(255, 204, 153) !important;
+	cursor: pointer;
+}
+
+.td10 {
+	background-color: rgb(204, 153, 255) !important;
+	cursor: pointer;
+}
+
+.td11 {
+	background-color: rgb(255, 153, 0) !important;
+	cursor: pointer;
+}
+
+.td12 {
+	background-color: rgb(153, 204, 255) !important;
+	cursor: pointer;
+}
+
+.td13 {
+	background-color: rgb(255, 255, 153) !important;
+	cursor: pointer;
+}
+
+.td14 {
+	background-color: rgb(204, 255, 204) !important;
+	cursor: pointer;
+}
+
+.td15 {
+	background-color: rgb(204, 255, 255) !important;
+	cursor: pointer;
+}
+
+.td16 {
+	background-color: rgb(0, 204, 255) !important;
+	cursor: pointer;
+}
+
+.td17 {
+	background-color: rgb(0, 128, 128) !important;
+	cursor: pointer;
+}
+
+.td18 {
+	background-color: rgb(0, 255, 255) !important;
+	cursor: pointer;
+}
+
+.td19 {
+	background-color: rgb(255, 255, 0) !important;
+	cursor: pointer;
+}
+
+.td20 {
+	background-color: rgb(255, 0, 255) !important;
+	cursor: pointer;
+}
+
+.td21 {
+	background-color: rgb(204, 204, 255) !important;
+	cursor: pointer;
+}
+
+.td23 {
+	background-color: rgb(255, 128, 128) !important;
+	cursor: pointer;
+}
+
+.td24 {
+	background-color: rgb(204, 255, 255) !important;
+	cursor: pointer;
+}
+
+.td25 {
+	background-color: rgb(255, 255, 204) !important;
+	cursor: pointer;
+}
+
+.td26 {
+	background-color: rgb(153, 51, 102) !important;
+	cursor: pointer;
+}
+
+.td27 {
+	background-color: rgb(153, 153, 255) !important;
+	cursor: pointer;
+}
+
+.td28 {
+	background-color: rgb(0, 255, 255) !important;
+	cursor: pointer;
+}
+
+.td29 {
+	background-color: rgb(255, 0, 255) !important;
+	cursor: pointer;
+}
+
+.td30 {
+	background-color: rgb(255, 255, 0) !important;
+	cursor: pointer;
+}
+
+.td31 {
+	background-color: rgb(0, 255, 0) !important;
+	cursor: pointer;
+}
+
+.quick-box {
+	position: fixed;
+	right: 10px;
+	bottom: 100px;
+	width: 45px;
+	height: 45px;
+	-webkit-transition: width 0.3s;
+	-moz-transition: width 0.3s;
+	-ms-transition: width 0.3s;
+	-o-transition: width 0.3s;
+	transition: width 0.3s;
+	z-index: 999;
+	background: url(ico_tool_chgPass.png) no-repeat left top;
+	background-size: 45px 45px;
+}
+
+.quick-box.active {
+	width: 300px;
+	height: 400px;
+	background: #fff;
+	box-shadow: 0px 0px 2px #333;
+	padding: 15px;
+	background-image: none;
+	border: 1px solid #a2a1a1;
+}
+
+.quick-box.active>.quick-content {
+	height: auto !important;
+	max-height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0px 10px;
+}
+
+.quick-content table {
+	width: 100%;
+	height: auto !important;
+	border-collapse: collapse;
+	display: none;
+}
+
+.quick-box.active .quick-content table {
+	display: table;
+	width: 100%;
+}
+
+.quick-content table thead {
+	border-bottom: 1px solid #ccc;
+}
+
+.quick-content table th,.quick-content table td {
+	padding: 5px 10px;
+	text-align: left;
+	font-family: "microsoft yahei";
+	font-size: 14px;
+	font-weight: lighter;
+	color: #333;
+}
+
+.quick-content table th {
+	font-weight: bold;
+}
+
+.quick-content table tr:nth-child(even) {
+	background: #ecf6ff;
+}
+
+.quick-content table tr:nth-child(odd) {
+	background: #fff;
+}
+
+.colorBox {
+	display: block;
+	width: 80px;
+	height: 14px;
+}
+
+.colorBox.c1 {
+	background: red;
+}
+
+.colorBox.c2 {
+	background: green;
+}
+
+.colorBox.c3 {
+	background: blue;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+table {
+	margin: 0;
+	border-collapse: collapse;
+}
+
+table td {
+	text-align: center;
+	vertical-align: middle;
+	border: 1px dotted #eee;
+	padding: 1px 3px;
+}
+table td svg{
+	margin-left: -12px;
+	margin-bottom: -4px;
+	width: 33px;
+	height: 30px;
+}
+.lr {
+	border-right: 0.5pt solid windowtext;
+	border-left: 0.5pt solid windowtext;
+}
+
+.t {
+	border-top: 0.5pt solid windowtext;
+}
+.ltrb{
+	padding: 0px!important;
+	/*background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><line x1="0" y1="0" x2="100%" y2="100%" stroke="black" stroke-width="1"/></svg>');*/
+	
+}
+.lbrt{
+	padding: 0px!important;
+	text-align: right!important;
+	/*background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><line x1="100%" y1="0%" x2="0%" y2="100%" stroke="black" stroke-width="1"/></svg>');*/
+	
+}
+
+

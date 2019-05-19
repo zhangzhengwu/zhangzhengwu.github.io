@@ -1,0 +1,40 @@
+<语法>
+$.myAjax(url, data, callback);
+url: 为请求地址
+data: 提交的数据（Object）,例如{ name: '张三', age: 14 }
+callback: 回调函数, 这里指的是你请求成功后可调用的函数（处理数据）；
+
+后台需注意：
+返回的数据需遵循以下格式
+{msg: 'zzz', state: 'aaa', data: []}
+msg: 为响应结果的信息（例如，添加成功、修改失败、请求超时...）
+state: 为响应结果的状态（例如，timeout、norule）
+data: 为响应结果的数据集（[{name: 'zhangsan',age: 14},{name: 'lisi', age: 12}]）
+
+
+
+
+1)先在html的head部，引入jquery,与jquery-ajax两个文件
+<script type="text/javascript" src="js/jquery-1.11.0.min"></script>
+<script type="text/javascript" src="js/jquery-ajax.js"></script>
+
+2)javascript中调用：
+<script type="text/javascript">
+
+    //例子一，带callback
+    $('#test').on('click',function(){
+        var url = 'test.php', //提交地址
+            data = {name: '张三'}, //提交的表单数据
+            callback = function(e){ //回调方法，如果不需处理数据可以不传这个参数
+                var datalist = e.data || [];
+                for(var i= 0, len=datalist.length; i<len; i++){
+                    console.log(datalist[i].name);
+                }
+            };
+        $.myAjax(url, data, callback);//如果在顶端引用过ajax.js，则在其他页面的用法前面加一个top.
+    });
+    //例子二, 仅带url和data参数
+    $('#test').on('click',function(){
+        $.myAjax('test.php',{name: '李四'});
+    });
+</script>

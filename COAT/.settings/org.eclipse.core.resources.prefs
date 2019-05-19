@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//WebRoot/Emap/UpEmap.html=gbk
+encoding//WebRoot/Macau/addNameCard.jsp=UTF-8
+encoding//WebRoot/addNameCard.jsp=UTF-8
+encoding//WebRoot/addStaffCard.jsp=UTF-8
+encoding//WebRoot/css/calendar.js=UTF-8
+encoding//WebRoot/namecard/addNameCard.jsp=UTF-8
+encoding//src/dao/AdminDAO.java=GBK
+encoding//src/entity/Admin.java=GBK
+encoding//src/entity/Consultant_List.java=UTF-8
+encoding//src/entity/TrRegNo.java=UTF-8
+encoding//src/servlet/CheckLoginServlet.java=UTF-8
+encoding//src/servlet/FileUploadServlet.java=GBK
+encoding//src/util=UTF-8
+encoding//src/util/Constant.java=UTF-8
+encoding/<project>=UTF-8

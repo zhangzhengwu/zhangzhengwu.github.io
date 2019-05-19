@@ -1,0 +1,13 @@
+/*Download by http://www.codefans.net*/
+
+.pageinfo{ float:right; height:auto; width:auto;margin-top:1px;margin-right:10px;}
+.pages { float: right; overflow: hidden; font-size: 12px; padding:0px;margin: 0px; list-style-type: none; }
+.pages li {  margin: 0px;  overflow-x: visible; width: auto; white-space: nowrap; float: left; margin-left: 2px; _width: 10px; }
+.pages .dotted { color: #1f3a87; font-weight: bold; }
+.pages .beginEnd {}
+.pages a {margin: 0 2px 0 0;padding:1px 8px;color:#428bca;display: block; background: #fff;border-radius:4px; border:1px solid #ddd;}
+.pages span{margin: 0 2px 0 0;padding:1px 8px;color:#428bca;display: block; background: #fff;border-radius:4px; border:1px solid #ddd;}
+.pages a:visited { color: #1f3a87; }
+.pages a:hover { border:1px solid #428bca;text-decoration: none;cursor:pointer; }
+.pages span:hover{border:1px solid #428bca;text-decoration: none;cursor:pointer; }
+.pages .current { background: #428bca; color: #fff;border:1px solid #fff;}

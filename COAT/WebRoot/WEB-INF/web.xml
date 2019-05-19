@@ -1,0 +1,2294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+<listener>  
+         <listener-class>com.coat.timerTask.servlet.TimerContext</listener-class>  
+ </listener>  
+ <listener>  
+         <listener-class>dao.exp.SynchronizationCons_list</listener-class>  
+ </listener>    
+ <listener>  
+        <listener-class>dao.exp.SynchronizationReportPDF</listener-class>  
+ </listener>  
+
+
+
+
+	<servlet>
+		<servlet-name>ServletConfigurator</servlet-name>
+		<servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+
+		<init-param>
+			<param-name>propertyFile</param-name>
+			<param-value>WEB-INF/classes/proxool.properties</param-value>
+		</init-param>
+			<load-on-startup>1</load-on-startup>
+	</servlet> 
+	
+<servlet>
+		<servlet-name>Admin</servlet-name>
+		<servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Admin</servlet-name>
+		<url-pattern>/convoyadmin</url-pattern>
+	</servlet-mapping> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <filter>
+  <filter-name>encoding</filter-name>
+  <filter-class>com.coat.interceptor.SetCharacterEncodingFilter</filter-class>
+  <init-param>
+   <param-name>encoding</param-name>
+   <param-value>UTF-8</param-value>
+  </init-param>
+ </filter>
+ <filter-mapping>
+  <filter-name>encoding</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+   <filter>
+    <filter-name>SessionListener</filter-name>
+    <filter-class>com.coat.interceptor.SessionListener</filter-class>
+   </filter>
+<!-- 配置多个映射，哪些请求执行过滤器 -->
+
+ <!-- <filter-mapping>
+    <filter-name>SessionListener</filter-name>
+    <url-pattern>/*</url-pattern>
+   </filter-mapping> -->
+
+    
+     <filter-mapping>
+	    <filter-name>SessionListener</filter-name>
+	    <url-pattern>/*</url-pattern>
+	    <url-pattern>*.jsp</url-pattern>
+ 	 </filter-mapping>
+
+ 
+ <servlet>
+    <servlet-name>TestGetName</servlet-name>
+    <servlet-class>servlet.TestgetName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestGetName</servlet-name>
+    <url-pattern>/TestGetName</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+    <servlet-name>seatServiceServlet</servlet-name>
+    <servlet-class>servlet.request.SaveSeatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>seatServiceServlet</servlet-name>
+    <url-pattern>/seatServiceServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>keyServlet</servlet-name>
+    <servlet-class>servlet.request.SaveKeyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>keyServlet</servlet-name>
+    <url-pattern>/keyServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>companyAssetServlet</servlet-name>
+    <servlet-class>servlet.request.SaveCompanyAssetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>companyAssetServlet</servlet-name>
+    <url-pattern>/companyAssetServlet</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+ 	<servlet-name>CompanyAssetItemServlet</servlet-name>
+ 	<servlet-class>com.coat.companyasset.servlet.CompanyAssetItemServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>CompanyAssetItemServlet</servlet-name>
+ 	<url-pattern>/CompanyAssetItemServlet</url-pattern>
+ </servlet-mapping>
+ 
+ 
+ <servlet>
+  <servlet-name>UpAllServlet</servlet-name>
+  <servlet-class>servlet.UpAllServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>UpSeatServlet</servlet-name>
+  <servlet-class>servlet.UpSeatServlet</servlet-class>
+ </servlet>
+ <!-- 系统登陆的servlet配置信息 -->
+ <servlet>
+  <servlet-name>CheckLoginServlet</servlet-name>
+  <servlet-class>servlet.CheckLoginServlet</servlet-class>
+ </servlet>
+<!-- 下载excel servlet配置信息 -->
+ <servlet>
+  <servlet-name>DownRequestServlet</servlet-name>
+  <servlet-class>servlet.DownRequestServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>DownRequestLocationServlet</servlet-name>
+  <servlet-class>servlet.DownRequestLocationServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>GetAllServlet</servlet-name>
+  <servlet-class>servlet.GetAllServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>StaffNoServlet</servlet-name>
+  <servlet-class>servlet.StaffNoServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>AddNewRequestServlet</servlet-name>
+  <servlet-class>servlet.AddNewRequestServlet</servlet-class>
+ </servlet>
+ <!-- wilson DelorUpdServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>DelorUpdServlet</servlet-name>
+  <servlet-class>servlet.DelorUpdServlet</servlet-class>
+ </servlet>
+ <!-- wilson QueryRequstServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>QueryRequstServlet</servlet-name>
+  <servlet-class>servlet.QueryRequstServlet</servlet-class>
+ </servlet>
+ <!-- wilson DownCardQuotaServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>DownCardQuotaServlet</servlet-name>
+  <servlet-class>servlet.DownCardQuotaServlet</servlet-class>
+ </servlet>
+
+   <servlet>
+    <servlet-name>PositionInformationServlet</servlet-name>
+    <servlet-class>servlet.promotion.PositionInformationServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PositionInformationServlet</servlet-name>
+    <url-pattern>/PositionInformationServlet</url-pattern>
+  </servlet-mapping>
+
+ 
+   <servlet>
+    <servlet-name>UpdNewRequestconvoyServlet</servlet-name>
+    <servlet-class>servlet.UpdNewRequestconvoyServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UpdNewRequestconvoyServlet</servlet-name>
+    <url-pattern>/UpdNewRequestconvoyServlet</url-pattern>
+  </servlet-mapping>
+ 
+ 
+ 
+ 
+ <!-- wilson QueryChargeServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>QueryChargeServlet</servlet-name>
+  <servlet-class>servlet.QueryChargeServlet</servlet-class>
+ </servlet>
+ <!-- wilson DownChargeServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>DownChargeServlet</servlet-name>
+  <servlet-class>servlet.DownChargeServlet</servlet-class>
+ </servlet>
+ <!-- wilson QueryCardquotaServlet-->
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>QueryCardquotaServlet</servlet-name>
+  <servlet-class>servlet.QueryCardquotaServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>QueryAdditionalServlet</servlet-name>
+  <servlet-class>servlet.QueryAdditionalServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>MotifyServlet</servlet-name>
+  <servlet-class>servlet.MotifyServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>SaveAdditionalServlet</servlet-name>
+  <servlet-class>servlet.SaveAdditionalServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>PayerServlet</servlet-name>
+  <servlet-class>servlet.PayerServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <servlet-name>AdditionalServlet</servlet-name>
+  <servlet-class>servlet.AdditionalServlet</servlet-class>
+ </servlet>
+  <servlet>
+    <servlet-name>DeletePayerServlet</servlet-name>
+    <servlet-class>servlet.DeletePayerServlet</servlet-class>
+  </servlet>
+
+ 
+  <servlet>
+    <servlet-name>SelectPositionServlet</servlet-name>
+    <servlet-class>servlet.SelectPositionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectProfessionalServlet</servlet-name>
+    <servlet-class>servlet.SelectProfessionalServlet</servlet-class>
+  </servlet>
+   <!-- wilson QueryStaffPositionServlet-->
+  <servlet>
+    <servlet-name>QueryStaffPositionServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.QueryStaffPositionServlet</servlet-class>
+  </servlet>
+
+   <!-- wilson StaffEditServlet-->
+  <servlet>
+    <servlet-name>StaffEditServlet</servlet-name>
+    <servlet-class>servlet.StaffEditServlet</servlet-class>
+  </servlet>
+   <!-- wilson SelectSatffPositionServlet-->
+  <servlet>
+    <servlet-name>SelectStaffPositionServlet</servlet-name>
+    <servlet-class>servlet.SelectStaffPositionServlet</servlet-class>
+  </servlet>
+   <!-- wilson SelectStaffProfessionalServlet-->
+  <servlet>
+    <servlet-name>SelectStaffProfessionalServlet</servlet-name>
+    <servlet-class>servlet.SelectStaffProfessionalServlet</servlet-class>
+  </servlet>
+   <!-- wilson AddStaffRequestServlet-->
+  <servlet>
+    <servlet-name>AddStaffRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.AddStaffRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddStaffRequestConvoyServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.AddStaffRequestConvoyServlet</servlet-class>
+  </servlet>
+   <!-- wilson QuerySatffRequstServlet-->
+  <servlet>
+    <servlet-name>QueryStaffRequstServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.QueryStaffRequstServlet</servlet-class>
+  </servlet>
+   <!-- wilson DownStaffRequestServlet-->
+  <servlet>
+    <servlet-name>DownStaffRequestServlet</servlet-name>
+    <servlet-class>servlet.DownStaffRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MotifyNameCardServlet</servlet-name>
+    <servlet-class>servlet.MotifyNameCardServlet</servlet-class>
+  </servlet>
+   <!-- wilson DeleteStaffServlet-->
+  <servlet>
+    <servlet-name>DeleteStaffServlet</servlet-name>
+    <servlet-class>servlet.DeleteStaffServlet</servlet-class>
+  </servlet>
+<!-- wilson QueryMedicalServlet-->
+  <servlet>
+    <servlet-name>QueryMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.QueryMedicalServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>AddMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.AddMedicalServlet</servlet-class>
+  </servlet>
+
+  <!-- wilson DeleteMedicalServlet-->
+  <servlet>
+    <servlet-name>DeleteMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.DeleteMedicalServlet</servlet-class>
+  </servlet>
+ <!-- wilson DownMedicalServlet-->
+  <servlet>
+    <servlet-name>DownMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.DownMedicalServlet</servlet-class>
+  </servlet>
+ <!-- wilson DownForConsServlet-->
+  <servlet>
+    <servlet-name>DownForConsServlet</servlet-name>
+    <servlet-class>servlet.Medical.DownForConsServlet</servlet-class>
+  </servlet>
+ <!-- wilson AddConvoyCardServlet-->
+  <servlet>
+    <servlet-name>AddConvoyCardServlet</servlet-name>
+    <servlet-class>servlet.AddConvoyCardServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>AddConvoyCardServlet</servlet-name>
+    <url-pattern>/AddConvoyCardServlet</url-pattern>
+  </servlet-mapping>
+   
+ <!-- Wilson QueryConvoyCardServlet-->
+  <servlet>
+    <servlet-name>QueryConvoyCardServlet</servlet-name>
+    <servlet-class>servlet.QueryConvoyCardServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryConvoyCardServlet</servlet-name>
+    <url-pattern>/QueryConvoyCardServlet</url-pattern>
+  </servlet-mapping>
+   
+  <servlet>
+    <servlet-name>QueryByStaffNoServlet</servlet-name>
+    <servlet-class>servlet.Medical.QueryByStaffNoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MotifyMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.MotifyMedicalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryMedicalConsultantServlet</servlet-name>
+    <servlet-class>servlet.Medical.QueryMedicalConsultantServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.VailMedicalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpEmapServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.UpEmapServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConsultantReportServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.ConsultantReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelConsultantReport</servlet-name>
+    <servlet-class>servlet.EmapServlet.DelConsultantReport</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownConsultantReportServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.DownConsultantReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryTraineeServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.QueryTraineeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownTraineeReportServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.DownTraineeReportServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ConspartReportServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.ConspartReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownpartConsultantReportServlet</servlet-name>
+    <servlet-class>servlet.EmapServlet.DownpartConsultantReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddNewCardServlet</servlet-name>
+    <servlet-class>servlet.Macau.AddNewCardServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>QueryLocationMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.QueryLocationMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailPayer</servlet-name>
+    <servlet-class>servlet.Macau.VailPayer</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MacauStaffServlet</servlet-name>
+    <servlet-class>servlet.Macau.MacauStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.QueryMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MotifyMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.MotifyMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PayerMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.PayerMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.DownMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownMacauRecordServlet</servlet-name>
+    <servlet-class>servlet.Macau.DownMacauRecordServlet</servlet-class>
+  </servlet>
+ 
+
+  <servlet>
+    <servlet-name>AddConsultantMedicalServlet</servlet-name>
+    <servlet-class>servlet.Consultant.AddConsultantMedicalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectMedicalConsultantServlet</servlet-name>
+    <servlet-class>servlet.Consultant.SelectMedicalConsultantServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateMedicalState</servlet-name>
+    <servlet-class>servlet.Consultant.UpdateMedicalState</servlet-class>
+  </servlet>
+ 
+  <servlet>
+    <servlet-name>AddNewRequestconvoyServlet</servlet-name>
+    <servlet-class>servlet.AddNewRequestconvoyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryConsMarqueeServlet</servlet-name>
+    <servlet-class>servlet.QueryConsMarqueeServlet</servlet-class>
+  </servlet>
+ 
+  <servlet>
+    <servlet-name>DownConvoyRequestServlet</servlet-name>
+    <servlet-class>servlet.DownConvoyRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShutdownCompterServlet</servlet-name>
+    <servlet-class>servlet.ShutdownCompterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpAllPromotionServlet</servlet-name>
+    <servlet-class>servlet.UpAllPromotionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PositionServlet</servlet-name>
+    <servlet-class>servlet.promotion.PositionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CalcularPromotionServlet</servlet-name>
+    <servlet-class>servlet.promotion.CalcularPromotionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RepeatServlet</servlet-name>
+    <servlet-class>servlet.RepeatServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestDownServlet</servlet-name>
+    <servlet-class>servlet.TestDownServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestgetName</servlet-name>
+    <servlet-class>servlet.TestgetName</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectStaffMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.SelectStaffMedicalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SaveStaffMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.SaveStaffMedicalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyStaffMedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.ModifyStaffMedicalServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>SelectMedicalStaffServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.SelectMedicalStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryEmailByConsultant</servlet-name>
+    <servlet-class>servlet.Medical.QueryEmailByConsultant</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetStaffNameServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.GetStaffNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GetMissPaymentServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.GetMissPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyStaffRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.ModifyStaffRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownMedicalStaffServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.DownMedicalStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Reject_informationServlet</servlet-name>
+    <servlet-class>servlet.Reject_informationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteMedicalStaffServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.DeleteMedicalStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownStaffRequestLocationServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.DownStaffRequestLocationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConvoyLoginServlet</servlet-name>
+    <servlet-class>servlet.ConvoyLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownAllMedicalStaffServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.DownAllMedicalStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailSameDayServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.VailSameDayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailEliteServlet</servlet-name>
+    <servlet-class>servlet.VailEliteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownForFADMedicalStaffServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.DownForFADMedicalStaffServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FileTitleUploadServlet</servlet-name>
+    <servlet-class>servlet.FileTitleUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SaveUploadFileServlet</servlet-name>
+    <servlet-class>servlet.SaveUploadFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryFileNameServlet</servlet-name>
+    <servlet-class>servlet.QueryFileNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownFileServlet</servlet-name>
+    <servlet-class>servlet.DownFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VialDDServlet</servlet-name>
+    <servlet-class>servlet.VialDDServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryMacauMarqueeServlet</servlet-name>
+    <servlet-class>servlet.Macau.QueryMacauMarqueeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailMacauDDServlet</servlet-name>
+    <servlet-class>servlet.Macau.VailMacauDDServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MacauPayerServlet</servlet-name>
+    <servlet-class>servlet.Macau.MacauPayerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailMacauEliteServlet</servlet-name>
+    <servlet-class>servlet.Macau.VailMacauEliteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailAEorConsultant</servlet-name>
+    <servlet-class>servlet.VailAEorConsultant</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckLoginNameServlet</servlet-name>
+    <servlet-class>servlet.CheckLoginNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SaveRejectBakServlet</servlet-name>
+    <servlet-class>servlet.Medical.Staff.SaveRejectBakServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryStaffRequestConvoyServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.QueryStaffRequestConvoyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ApproveStaffRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.ApproveStaffRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RejectRequestStaffConvoyServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.RejectRequestStaffConvoyServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+	<servlet-mapping>
+	<servlet-name>DownConvoyRequestServlet</servlet-name>
+	<url-pattern>/DownConvoyRequestServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	<servlet-name>QueryConsMarqueeServlet</servlet-name>
+	<url-pattern>/QueryConsMarqueeServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	<servlet-name>AddNewRequestconvoyServlet</servlet-name>
+	<url-pattern>/AddNewRequestconvoyServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+	<servlet-name>ConspartReportServlet</servlet-name>
+	<url-pattern>/ConspartReportServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	<servlet-name>DownpartConsultantReportServlet</servlet-name>
+	<url-pattern>/DownpartConsultantReportServlet</url-pattern>
+	</servlet-mapping>
+  <!-- wilson DownTraineeReportServlet-->
+	<servlet-mapping>
+	<servlet-name>DownTraineeReportServlet</servlet-name>
+	<url-pattern>/DownTraineeReportServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+  <!-- wilson QueryTraineeServlet-->
+	<servlet-mapping>
+	<servlet-name>QueryTraineeServlet</servlet-name>
+	<url-pattern>/QueryTraineeServlet</url-pattern>
+	</servlet-mapping>
+  <!-- wilson DownForConsServlet-->
+	<servlet-mapping>
+	<servlet-name>DownForConsServlet</servlet-name>
+	<url-pattern>/DownForConsServlet</url-pattern>
+	</servlet-mapping>
+  <!-- wilson DownMedicalServlet-->
+	<servlet-mapping>
+	<servlet-name>DownMedicalServlet</servlet-name>
+	<url-pattern>/DownMedicalServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson DeleteMedicalServlet-->
+	<servlet-mapping>
+	<servlet-name>DeleteMedicalServlet</servlet-name>
+	<url-pattern>/DeleteMedicalServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson QueryMedicalServlet-->
+	<servlet-mapping>
+	<servlet-name>QueryMedicalServlet</servlet-name>
+	<url-pattern>/QueryMedicalServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson DeleteStaffServlet-->
+	<servlet-mapping>
+	<servlet-name>DeleteStaffServlet</servlet-name>
+	<url-pattern>/DeleteStaffServlet</url-pattern>
+	</servlet-mapping>
+  
+   <!-- wilson DownStaffRequestServlet-->
+	<servlet-mapping>
+	<servlet-name>DownStaffRequestServlet</servlet-name>
+	<url-pattern>/DownStaffRequestServlet</url-pattern>
+	</servlet-mapping>
+  
+   <!-- wilson QuerySatffRequstServlet-->
+	<servlet-mapping>
+	<servlet-name>QueryStaffRequstServlet</servlet-name>
+	<url-pattern>/QueryStaffRequstServlet</url-pattern>
+	</servlet-mapping>
+  
+   <!-- wilson DownChargeServlet-->
+	<servlet-mapping>
+	<servlet-name>DownChargeServlet</servlet-name>
+	<url-pattern>/DownChargeServlet</url-pattern>
+	</servlet-mapping>
+  
+   <!-- wilson AddStaffRequestServlet-->
+	<servlet-mapping>
+	<servlet-name>AddStaffRequestServlet</servlet-name>
+	<url-pattern>/AddStaffRequestServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	<servlet-name>AddStaffRequestConvoyServlet</servlet-name>
+	<url-pattern>/AddStaffRequestConvoyServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson SelectStaffProfessionalServlet-->
+	<servlet-mapping>
+	<servlet-name>SelectStaffProfessionalServlet</servlet-name>
+	<url-pattern>/SelectStaffProfessionalServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson SelectSatffPositionServlet-->
+	<servlet-mapping>
+	<servlet-name>SelectStaffPositionServlet</servlet-name>
+	<url-pattern>/SelectStaffPositionServlet</url-pattern>
+	</servlet-mapping>
+   <!-- wilson StaffEditServlet-->
+	<servlet-mapping>
+	<servlet-name>StaffEditServlet</servlet-name>
+	<url-pattern>/StaffEditServlet</url-pattern>
+	</servlet-mapping>
+  
+
+  
+   <!-- wilson QueryStaffPositionServlet-->
+	<servlet-mapping>
+	<servlet-name>QueryStaffPositionServlet</servlet-name>
+	<url-pattern>/QueryStaffPositionServlet</url-pattern>
+	</servlet-mapping>
+  
+
+
+
+ <servlet-mapping>
+  <servlet-name>CheckLoginServlet</servlet-name>
+  <url-pattern>/CheckLoginServlet</url-pattern>
+ </servlet-mapping>
+
+ <servlet-mapping>
+  <servlet-name>DownRequestServlet</servlet-name>
+  <url-pattern>/DownRequestServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>DownRequestLocationServlet</servlet-name>
+  <url-pattern>/DownRequestLocationServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>UpAllServlet</servlet-name>
+  <url-pattern>/UpAllServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>UpSeatServlet</servlet-name>
+  <url-pattern>/UpSeatServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>GetAllServlet</servlet-name>
+  <url-pattern>/GetAllServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>StaffNoServlet</servlet-name>
+  <url-pattern>/StaffNoServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>AddNewRequestServlet</servlet-name>
+  <url-pattern>/AddNewRequestServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>DelorUpdServlet</servlet-name>
+  <url-pattern>/DelorUpdServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>QueryRequstServlet</servlet-name>
+  <url-pattern>/QueryRequstServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>DownCardQuotaServlet</servlet-name>
+  <url-pattern>/DownCardQuotaServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>QueryCardquotaServlet</servlet-name>
+  <url-pattern>/QueryCardquotaServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>QueryAdditionalServlet</servlet-name>
+  <url-pattern>/QueryAdditionalServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>MotifyServlet</servlet-name>
+  <url-pattern>/MotifyServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>SaveAdditionalServlet</servlet-name>
+  <url-pattern>/SaveAdditionalServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>PayerServlet</servlet-name>
+  <url-pattern>/PayerServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>AdditionalServlet</servlet-name>
+  <url-pattern>/AdditionalServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>QueryChargeServlet</servlet-name>
+  <url-pattern>/QueryChargeServlet</url-pattern>
+ </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeletePayerServlet</servlet-name>
+    <url-pattern>/DeletePayerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectPositionServlet</servlet-name>
+    <url-pattern>/SelectPositionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectProfessionalServlet</servlet-name>
+    <url-pattern>/SelectProfessionalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MotifyNameCardServlet</servlet-name>
+    <url-pattern>/MotifyNameCardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddMedicalServlet</servlet-name>
+    <url-pattern>/AddMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryByStaffNoServlet</servlet-name>
+    <url-pattern>/QueryByStaffNoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MotifyMedicalServlet</servlet-name>
+    <url-pattern>/MotifyMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMedicalConsultantServlet</servlet-name>
+    <url-pattern>/QueryMedicalConsultantServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailMedicalServlet</servlet-name>
+    <url-pattern>/VailMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpEmapServlet</servlet-name>
+    <url-pattern>/UpEmapServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConsultantReportServlet</servlet-name>
+    <url-pattern>/ConsultantReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelConsultantReport</servlet-name>
+    <url-pattern>/DelConsultantReport</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownConsultantReportServlet</servlet-name>
+    <url-pattern>/DownConsultantReportServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>QueryLocationMacauServlet</servlet-name>
+    <url-pattern>/QueryLocationMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailPayer</servlet-name>
+    <url-pattern>/VailPayer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MacauStaffServlet</servlet-name>
+    <url-pattern>/MacauStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddNewCardServlet</servlet-name>
+    <url-pattern>/AddNewCardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMacauServlet</servlet-name>
+    <url-pattern>/QueryMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MotifyMacauServlet</servlet-name>
+    <url-pattern>/MotifyMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayerMacauServlet</servlet-name>
+    <url-pattern>/PayerMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownMacauServlet</servlet-name>
+    <url-pattern>/DownMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownMacauRecordServlet</servlet-name>
+    <url-pattern>/DownMacauRecordServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AddConsultantMedicalServlet</servlet-name>
+    <url-pattern>/AddConsultantMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMedicalConsultantServlet</servlet-name>
+    <url-pattern>/SelectMedicalConsultantServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateMedicalState</servlet-name>
+    <url-pattern>/UpdateMedicalState</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShutdownCompterServlet</servlet-name>
+    <url-pattern>/ShutdownCompterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpAllPromotionServlet</servlet-name>
+    <url-pattern>/UpAllPromotionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PositionServlet</servlet-name>
+    <url-pattern>/PositionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CalcularPromotionServlet</servlet-name>
+    <url-pattern>/CalcularPromotionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RepeatServlet</servlet-name>
+    <url-pattern>/RepeatServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestDownServlet</servlet-name>
+    <url-pattern>/TestDownServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestgetName</servlet-name>
+    <url-pattern>/TestgetName</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectStaffMedicalServlet</servlet-name>
+    <url-pattern>/SelectStaffMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveStaffMedicalServlet</servlet-name>
+    <url-pattern>/SaveStaffMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyStaffMedicalServlet</servlet-name>
+    <url-pattern>/ModifyStaffMedicalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMedicalStaffServlet</servlet-name>
+    <url-pattern>/SelectMedicalStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryEmailByConsultant</servlet-name>
+    <url-pattern>/QueryEmailByConsultant</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetStaffNameServlet</servlet-name>
+    <url-pattern>/GetStaffNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetMissPaymentServlet</servlet-name>
+    <url-pattern>/GetMissPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyStaffRequestServlet</servlet-name>
+    <url-pattern>/ModifyStaffRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownMedicalStaffServlet</servlet-name>
+    <url-pattern>/DownMedicalStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Reject_informationServlet</servlet-name>
+    <url-pattern>/Reject_informationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMedicalStaffServlet</servlet-name>
+    <url-pattern>/DeleteMedicalStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownStaffRequestLocationServlet</servlet-name>
+    <url-pattern>/DownStaffRequestLocationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConvoyLoginServlet</servlet-name>
+    <url-pattern>/ConvoyLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownAllMedicalStaffServlet</servlet-name>
+    <url-pattern>/DownAllMedicalStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailSameDayServlet</servlet-name>
+    <url-pattern>/VailSameDayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailEliteServlet</servlet-name>
+    <url-pattern>/VailEliteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownForFADMedicalStaffServlet</servlet-name>
+    <url-pattern>/DownForFADMedicalStaffServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileTitleUploadServlet</servlet-name>
+    <url-pattern>/FileTitleUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveUploadFileServlet</servlet-name>
+    <url-pattern>/SaveUploadFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryFileNameServlet</servlet-name>
+    <url-pattern>/QueryFileNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownFileServlet</servlet-name>
+    <url-pattern>/DownFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VialDDServlet</servlet-name>
+    <url-pattern>/VialDDServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMacauMarqueeServlet</servlet-name>
+    <url-pattern>/QueryMacauMarqueeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailMacauDDServlet</servlet-name>
+    <url-pattern>/VailMacauDDServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MacauPayerServlet</servlet-name>
+    <url-pattern>/MacauPayerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailMacauEliteServlet</servlet-name>
+    <url-pattern>/VailMacauEliteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailAEorConsultant</servlet-name>
+    <url-pattern>/VailAEorConsultant</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckLoginNameServlet</servlet-name>
+    <url-pattern>/CheckLoginNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveRejectBakServlet</servlet-name>
+    <url-pattern>/SaveRejectBakServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryStaffRequestConvoyServlet</servlet-name>
+    <url-pattern>/QueryStaffRequestConvoyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ApproveStaffRequestServlet</servlet-name>
+    <url-pattern>/ApproveStaffRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RejectRequestStaffConvoyServlet</servlet-name>
+    <url-pattern>/RejectRequestStaffConvoyServlet</url-pattern>
+  </servlet-mapping>
+ 
+ <!-- sky -->
+  <servlet>
+    <servlet-name>QueryRoomSettingServlet</servlet-name>
+    <servlet-class>servlet.request.QueryRoomSettingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryRoomSettingServlet</servlet-name>
+    <url-pattern>/QueryRoomSettingServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SaveRoomSettingServlet</servlet-name>
+    <servlet-class>servlet.request.SaveRoomSettingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaveRoomSettingServlet</servlet-name>
+    <url-pattern>/SaveRoomSettingServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>QueryStationeryServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>QueryStationeryServlet</servlet-name>
+    <url-pattern>/QueryStationeryServlet</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <servlet-name>ReportRoomSettingServlet</servlet-name>
+    <servlet-class>servlet.request.ReportRoomSettingServlet</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ReportRoomSettingServlet</servlet-name>
+    <url-pattern>/ReportRoomSettingServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>StationeryOrderRecordServlet</servlet-name>
+    <servlet-class>servlet.Stationery.StationeryOrderRecordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StationeryOrderRecordServlet</servlet-name>
+    <url-pattern>/StationeryOrderRecordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>QueryMarketingPremiumServlet</servlet-name>
+    <servlet-class>servlet.markpremium.QueryMarketingPremiumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SaveMarketingPrimiumRecordServlet</servlet-name>
+    <servlet-class>servlet.markpremium.SaveMarketingPrimiumRecordServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>QueryMarketingPremiumServlet</servlet-name>
+    <url-pattern>/QueryMarketingPremiumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveMarketingPrimiumRecordServlet</servlet-name>
+    <url-pattern>/SaveMarketingPrimiumRecordServlet</url-pattern>
+  </servlet-mapping>
+
+<!-- Wilson 2013-5-21 Start-->
+  <servlet>
+    <servlet-name>QueryStationeryOrderServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryOrderServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryStationeryOrderServlet</servlet-name>
+    <url-pattern>/QueryStationeryOrderServlet</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>QueryStationeryForUpdServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryForUpdServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryStationeryForUpdServlet</servlet-name>
+    <url-pattern>/QueryStationeryForUpdServlet</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>QueryStationeryRecordServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryRecordServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryStationeryRecordServlet</servlet-name>
+    <url-pattern>/QueryStationeryRecordServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DelStationeryOrder</servlet-name>
+    <servlet-class>servlet.Stationery.MotifyStationeryOrderServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>DelStationeryOrder</servlet-name>
+    <url-pattern>/DelStationeryOrder</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>QueryMarkPremiumOrderServlet</servlet-name>
+    <servlet-class>servlet.markpremium.QueryMarkPremiumServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryMarkPremiumOrderServlet</servlet-name>
+    <url-pattern>/QueryMarkPremiumOrderServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>QueryMarkPremiumRecordServlet</servlet-name>
+    <servlet-class>servlet.markpremium.QueryMarkPremiumRecordServlet</servlet-class>
+  </servlet>
+ <servlet-mapping>
+    <servlet-name>QueryMarkPremiumRecordServlet</servlet-name>
+    <url-pattern>/QueryMarkPremiumRecordServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>DelMarkPremiumRecord</servlet-name>
+    <servlet-class>servlet.markpremium.MotifyMarkPremiumOrderServlet</servlet-class>
+  </servlet>
+ 	<servlet-mapping>
+    <servlet-name>DelMarkPremiumRecord</servlet-name>
+    <url-pattern>/DelMarkPremiumRecord</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ReportMarkPremiumServlet</servlet-name>
+    <servlet-class>servlet.markpremium.ReportMarkPremiumServlet</servlet-class>
+  </servlet>
+ 	<servlet-mapping>
+    <servlet-name>ReportMarkPremiumServlet</servlet-name>
+    <url-pattern>/ReportMarkPremiumServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet> 
+    <servlet-name>ReportAllMarkPremiumServlet</servlet-name>
+    <servlet-class>servlet.markpremium.ReportAllMarkPremiumServlet</servlet-class>
+  </servlet>
+ 	<servlet-mapping>
+    <servlet-name>ReportAllMarkPremiumServlet</servlet-name>
+    <url-pattern>/ReportAllMarkPremiumServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ReportStationeryServlet</servlet-name>
+    <servlet-class>servlet.Stationery.ReportStationeryServlet</servlet-class>
+  </servlet><servlet-mapping>
+    <servlet-name>ReportStationeryServlet</servlet-name>
+    <url-pattern>/ReportStationeryServlet</url-pattern>
+  </servlet-mapping>
+ 
+    <servlet>
+    <servlet-name>ReportAllStationeryServlet</servlet-name>
+    <servlet-class>servlet.Stationery.ReportAllStationeryServlet</servlet-class>
+  </servlet><servlet-mapping>
+    <servlet-name>ReportAllStationeryServlet</servlet-name>
+    <url-pattern>/ReportAllStationeryServlet</url-pattern>
+  </servlet-mapping>
+
+ 
+  
+    <servlet>
+    <servlet-name>QueryMarkPremiumForUpdServlet</servlet-name>
+    <servlet-class>servlet.markpremium.QueryMarkPremiumForUpdServlet</servlet-class>
+  </servlet>
+ 	<servlet-mapping>
+    <servlet-name>QueryMarkPremiumForUpdServlet</servlet-name>
+    <url-pattern>/QueryMarkPremiumForUpdServlet</url-pattern>
+  </servlet-mapping>
+  
+    
+  <servlet>
+    <servlet-name>QueryStationeryQuantityServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryQuantityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryStationeryQuantityServlet</servlet-name>
+    <url-pattern>/QueryStationeryQuantityServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Wilson 2013-5-21 End-->
+   
+  <servlet>
+    <servlet-name>QueryMarketingPremiumHRServlet</servlet-name>
+    <servlet-class>servlet.markpremium.QueryMarketingPremiumHRServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyMarketingPremiumHRServlet</servlet-name>
+    <servlet-class>servlet.markpremium.ModifyMarketingPremiumHRServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>QueryMarketingPremiumHRServlet</servlet-name>
+    <url-pattern>/QueryMarketingPremiumHRServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyMarketingPremiumHRServlet</servlet-name>
+    <url-pattern>/ModifyMarketingPremiumHRServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>QueryStationeryOrderForHRServlet</servlet-name>
+    <servlet-class>servlet.Stationery.QueryStationeryOrderForHRServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryStationeryOrderForHRServlet</servlet-name>
+    <url-pattern>/QueryStationeryOrderForHRServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MotifyStaioneryOrderHRServlet</servlet-name>
+    <servlet-class>servlet.Stationery.MotifyStaioneryOrderHRServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MotifyStaioneryOrderHRServlet</servlet-name>
+    <url-pattern>/MotifyStaioneryOrderHRServlet</url-pattern>
+  </servlet-mapping>
+  <!-- test -->
+  <servlet>
+    <servlet-name>ReportTestServlet</servlet-name>
+    <servlet-class>servlet.china.ReportTestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteNameCardServlet</servlet-name>
+    <servlet-class>servlet.DeleteNameCardServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SpecifiedExportServlet</servlet-name>
+    <servlet-class>servlet.SpecifiedExportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownBJBSServlet</servlet-name>
+    <servlet-class>servlet.DownBJBSServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailLoginServlet</servlet-name>
+    <servlet-class>servlet.VailLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailSessionServlet</servlet-name>
+    <servlet-class>servlet.VailSessionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryMissingPaymentServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.QueryMissingPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelMissingPaymentServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.DelMissingPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectMissPrincipalServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.SelectMissPrincipalServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownMissingPaymentReportServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.DownMissingPaymentReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryMissingPaymentForConsServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.QueryMissingPaymentForConsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyMissingPaymentServlet</servlet-name>
+    <servlet-class>servlet.MissPayment.ModifyMissingPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddHRRequestConvoyServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.AddHRRequestConvoyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StaffPositionServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.StaffPositionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.DepartmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StaffDepartHeadServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.StaffDepartHeadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ApproveHRRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.ApproveHRRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ApproveDepartRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.depart.ApproveDepartRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryHRConvoyCardServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.hr.QueryHRConvoyCardServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailDepartHeadServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.depart.VailDepartHeadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryDeptRequestConvoyServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.depart.QueryDeptRequestConvoyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminServiceServlet</servlet-name>
+    <servlet-class>servlet.request.AdminServiceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AccessCardServlet</servlet-name>
+    <servlet-class>servlet.request.AccessCardServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>PIBAStudyNoteServlet</servlet-name>
+    <servlet-class>servlet.request.PIBAStudyNoteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PaymentServlet</servlet-name>
+    <servlet-class>servlet.request.PaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NewQueryMarkPremiumServlet</servlet-name>
+    <servlet-class>servlet.markpremium.NewQueryMarkPremiumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MarketingPremiumServlet</servlet-name>
+    <servlet-class>servlet.request.MarketingPremiumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StationeryServlet</servlet-name>
+    <servlet-class>servlet.request.StationeryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReportingServlet</servlet-name>
+    <servlet-class>servlet.request.ReportingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VailEmailServlet</servlet-name>
+    <servlet-class>servlet.request.VailEmailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestEmailServlet</servlet-name>
+    <servlet-class>servlet.request.TestEmailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddDeptStaffRequestServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.depart.AddDeptStaffRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QueryStaff_list</servlet-name>
+    <servlet-class>servlet.staffservlet.QueryStaff_listServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RecruitmentServlet</servlet-name>
+    <servlet-class>servlet.request.RecruitmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>UpLoadFileServlet</servlet-name>
+  <servlet-class>servlet.UpLoadFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryRecruitmentHRServlet</servlet-name>
+    <servlet-class>servlet.request.QueryRecruitmentHRServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<servlet-mapping>
+<servlet-name>UpLoadFileServlet</servlet-name>
+<url-pattern>/UpLoadFileServlet</url-pattern>
+</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportTestServlet</servlet-name>
+    <url-pattern>/ReportTestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNameCardServlet</servlet-name>
+    <url-pattern>/DeleteNameCardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SpecifiedExportServlet</servlet-name>
+    <url-pattern>/SpecifiedExportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownBJBSServlet</servlet-name>
+    <url-pattern>/DownBJBSServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailLoginServlet</servlet-name>
+    <url-pattern>/VailLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailSessionServlet</servlet-name>
+    <url-pattern>/VailSessionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMissingPaymentServlet</servlet-name>
+    <url-pattern>/QueryMissingPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelMissingPaymentServlet</servlet-name>
+    <url-pattern>/DelMissingPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMissPrincipalServlet</servlet-name>
+    <url-pattern>/SelectMissPrincipalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownMissingPaymentReportServlet</servlet-name>
+    <url-pattern>/DownMissingPaymentReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMissingPaymentForConsServlet</servlet-name>
+    <url-pattern>/QueryMissingPaymentForConsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyMissingPaymentServlet</servlet-name>
+    <url-pattern>/ModifyMissingPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddHRRequestConvoyServlet</servlet-name>
+    <url-pattern>/AddHRRequestConvoyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StaffPositionServlet</servlet-name>
+    <url-pattern>/StaffPositionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <url-pattern>/DepartmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StaffDepartHeadServlet</servlet-name>
+    <url-pattern>/StaffDepartHeadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ApproveHRRequestServlet</servlet-name>
+    <url-pattern>/ApproveHRRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ApproveDepartRequestServlet</servlet-name>
+    <url-pattern>/ApproveDepartRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryHRConvoyCardServlet</servlet-name>
+    <url-pattern>/QueryHRConvoyCardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailDepartHeadServlet</servlet-name>
+    <url-pattern>/VailDepartHeadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryDeptRequestConvoyServlet</servlet-name>
+    <url-pattern>/QueryDeptRequestConvoyServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>AdminServiceServlet</servlet-name>
+    <url-pattern>/AdminServiceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AccessCardServlet</servlet-name>
+    <url-pattern>/AccessCardServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PIBAStudyNoteServlet</servlet-name>
+    <url-pattern>/PIBAStudyNoteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PaymentServlet</servlet-name>
+    <url-pattern>/PaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewQueryMarkPremiumServlet</servlet-name>
+    <url-pattern>/NewQueryMarkPremiumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MarketingPremiumServlet</servlet-name>
+    <url-pattern>/MarketingPremiumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StationeryServlet</servlet-name>
+    <url-pattern>/StationeryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportingServlet</servlet-name>
+    <url-pattern>/ReportingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VailEmailServlet</servlet-name>
+    <url-pattern>/VailEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestEmailServlet</servlet-name>
+    <url-pattern>/TestEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddDeptStaffRequestServlet</servlet-name>
+    <url-pattern>/AddDeptStaffRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryStaff_list</servlet-name>
+    <url-pattern>/QueryStaff_list</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>RecruitmentServlet</servlet-name>
+    <url-pattern>/RecruitmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryRecruitmentHRServlet</servlet-name>
+    <url-pattern>/QueryRecruitmentHRServlet</url-pattern>
+  </servlet-mapping>
+
+ 
+  
+  
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LocationServlet</servlet-name>
+    <servlet-class>servlet.LocationServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ConsListServlet</servlet-name>
+    <servlet-class>servlet.ConsListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>servlet.AdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>servlet.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReportDeductServlet</servlet-name>
+    <servlet-class>servlet.request.ReportDeductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpExcelServlet</servlet-name>
+    <servlet-class>servlet.upload.UpExcelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EPaymentServlet</servlet-name>
+    <servlet-class>servlet.request.EPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EpaymentHRQueryServlet</servlet-name>
+    <servlet-class>servlet.request.EpaymentHRQueryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EpaymentHRQueryDetailServlet</servlet-name>
+    <servlet-class>servlet.ePayment.EpaymentHRQueryDetailServlet</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+    <servlet-name>LocationServlet</servlet-name>
+    <url-pattern>/EntryLocationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConsListServlet</servlet-name>
+    <url-pattern>/ConsListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <url-pattern>/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportDeductServlet</servlet-name>
+    <url-pattern>/ReportDeductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpExcelServlet</servlet-name>
+    <url-pattern>/UpExcelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <servlet-name>UploadFileServlet</servlet-name>
+    <servlet-class>servlet.Consultant.UploadFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ConsMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.ConsMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpLoadFileMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.UpLoadFileMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpExcelMacauServlet</servlet-name>
+    <servlet-class>servlet.Macau.UpExcelMacauServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SendMailServlet</servlet-name>
+    <servlet-class>servlet.email.SendMailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StaffNameCardReaderServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.StaffNameCardReaderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StaffNameCardWriteServlet</servlet-name>
+    <servlet-class>servlet.staffservlet.StaffNameCardWriteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SendNoticeMailServlet</servlet-name>
+    <servlet-class>servlet.email.SendNoticeMailServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>EPaymentServlet</servlet-name>
+    <url-pattern>/EPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EpaymentHRQueryServlet</servlet-name>
+    <url-pattern>/EpaymentHRQueryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EpaymentHRQueryDetailServlet</servlet-name>
+    <url-pattern>/EpaymentHRQueryDetailServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>UploadFileServlet</servlet-name>
+    <url-pattern>/servlet/UploadFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConsMacauServlet</servlet-name>
+    <url-pattern>/ConsMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpLoadFileMacauServlet</servlet-name>
+    <url-pattern>/UpLoadFileMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpExcelMacauServlet</servlet-name>
+    <url-pattern>/UpExcelMacauServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendMailServlet</servlet-name>
+    <url-pattern>/SendMailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StaffNameCardReaderServlet</servlet-name>
+    <url-pattern>/StaffNameCardReaderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StaffNameCardWriteServlet</servlet-name>
+    <url-pattern>/StaffNameCardWriteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendNoticeMailServlet</servlet-name>
+    <url-pattern>/SendNoticeMailServlet</url-pattern>
+  </servlet-mapping>
+
+  
+  <!-- System Start -->
+  
+   <servlet>
+    <servlet-name>getVerifyCodeServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.getVerifyCodeServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>UploadHeadimgServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.UploadHeadimgServlet</servlet-class>
+  </servlet>
+	<servlet>
+    <servlet-name>getMenuCompetence</servlet-name>
+    <servlet-class>cn.admin.action.system.getMenuCompetence</servlet-class>
+  </servlet>
+	
+  <servlet>
+    <servlet-name>SystemUserServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.SystemUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SystemGroupServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.SystemGroupServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SystemMenuServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.SystemMenuServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PageControlAction</servlet-name>
+    <servlet-class>cn.admin.action.system.PageControlAction</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SystemMsgAction</servlet-name>
+    <servlet-class>cn.admin.action.systemmsg.SystemMsgAction</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpLoadExcelServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.UpLoadExcelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PermissionServlet</servlet-name>
+    <servlet-class>servlet.admin.PermissionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginRecordServlet</servlet-name>
+    <servlet-class>com.coat.loginrecord.servlet.LoginRecordServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OperationRecordServlet</servlet-name>
+    <servlet-class>com.coat.operationrecord.servlet.OperationRecordServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NoticeServlet</servlet-name>
+    <servlet-class>com.coat.notice.servlet.NoticeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PersionHeadServlet</servlet-name>
+    <servlet-class>com.coat.admin.servlet.PersionHeadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>com.coat.file.servlet.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginoutServlet</servlet-name>
+    <servlet-class>servlet.LoginoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminServicesServlet</servlet-name>
+    <servlet-class>com.coat.admservices.servlet.AdminServicesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NameCardWriteServlet</servlet-name>
+    <servlet-class>com.coat.namecard.servlet.NameCardWriteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryAdditionalQuotaServlet</servlet-name>
+    <servlet-class>com.coat.consultantcard.servlet.QueryAdditionalQuotaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SaveAdditionalQuotaServlet</servlet-name>
+    <servlet-class>com.coat.consultantcard.servlet.SaveAdditionalQuotaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdditionalQuotaServlet</servlet-name>
+    <servlet-class>com.coat.additionquota.servlet.AdditionalQuotaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NameCardConvoyWriteServlet</servlet-name>
+    <servlet-class>com.coat.namecard.servlet.NameCardConvoyWriteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NameCardReaderServlet</servlet-name>
+    <servlet-class>com.coat.namecard.servlet.NameCardReaderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NameCardConvoyReaderServlet</servlet-name>
+    <servlet-class>com.coat.namecard.servlet.NameCardConvoyReaderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AttendanceWriteServlet</servlet-name>
+    <servlet-class>com.coat.attendance.servlet.AttendanceWriteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CommonReaderServlet</servlet-name>
+    <servlet-class>com.coat.common.servlet.CommonReaderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PickUpRecordServlet</servlet-name>
+    <servlet-class>com.coat.pickuprecord.servlet.PickUpRecordServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChickenBoxServlet</servlet-name>
+    <servlet-class>com.coat.chickenbox.servlet.ChickenBoxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FileManagerServlet</servlet-name>
+    <servlet-class>com.coat.file.servlet.FileManagerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>cn.admin.action.system.UserLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SystemStatisticsAction</servlet-name>
+    <servlet-class>cn.admin.action.system.SystemStatisticsAction</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HighchartsServlet</servlet-name>
+    <servlet-class>com.coat.common.servlet.HighchartsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SeattingPlanServlet</servlet-name>
+    <servlet-class>com.coat.timerTask.servlet.SeattingPlanServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryTimeTaskScheduleServlet</servlet-name>
+    <servlet-class>com.coat.timerTask.servlet.QueryTimeTaskScheduleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SeatServlet</servlet-name>
+    <servlet-class>servlet.request.SeatServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IvrServlet</servlet-name>
+    <servlet-class>com.coat.ivr.servlet.IvrServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SeatAutoServlet</servlet-name>
+    <servlet-class>servlet.request.SeatAutoServlet</servlet-class>
+  </servlet>
+
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryConsultantTitleServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryConsultantTitleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryConsultantProTitleServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryConsultantProTitleServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryStationeryProductServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryStationeryProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryMarketPremiumServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryMarketPremiumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryPibaBookServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryPibaBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryEPaymentListServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryEPaymentListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryAttachmentServlet</servlet-name>
+    <servlet-class>com.coat.business.servlet.QueryAttachmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MedicalServlet</servlet-name>
+    <servlet-class>servlet.Medical.MedicalServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   <servlet-mapping>
+    <servlet-name>SystemUserServlet</servlet-name>
+    <url-pattern>/SystemUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SystemGroupServlet</servlet-name>
+    <url-pattern>/SystemGroupServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SystemMenuServlet</servlet-name>
+    <url-pattern>/SystemMenuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getVerifyCodeServlet</servlet-name>
+    <url-pattern>/getVerifyCodeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadHeadimgServlet</servlet-name>
+    <url-pattern>/UploadHeadimgServlet</url-pattern>
+  </servlet-mapping>
+ <servlet-mapping>
+    <servlet-name>getMenuCompetence</servlet-name>
+    <url-pattern>/getMenuCompetence</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PageControlAction</servlet-name>
+    <url-pattern>/PageControlAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SystemMsgAction</servlet-name>
+    <url-pattern>/SystemMsgAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PermissionServlet</servlet-name>
+    <url-pattern>/admin/PermissionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginRecordServlet</servlet-name>
+    <url-pattern>/loginrecord/LoginRecordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OperationRecordServlet</servlet-name>
+    <url-pattern>/operationrecord/OperationRecordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NoticeServlet</servlet-name>
+    <url-pattern>/notice/NoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PersionHeadServlet</servlet-name>
+    <url-pattern>/admin/PersionHeadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/file/FileUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginoutServlet</servlet-name>
+    <url-pattern>/LoginoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServicesServlet</servlet-name>
+    <url-pattern>/admservice/AdminServicesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NameCardWriteServlet</servlet-name>
+    <url-pattern>/namecard/NameCardWriteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryAdditionalQuotaServlet</servlet-name>
+    <url-pattern>/consultantcard/QueryAdditionalQuotaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveAdditionalQuotaServlet</servlet-name>
+    <url-pattern>/consultantcard/SaveAdditionalQuotaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdditionalQuotaServlet</servlet-name>
+    <url-pattern>/additionquota/AdditionalQuotaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NameCardConvoyWriteServlet</servlet-name>
+    <url-pattern>/namecard/NameCardConvoyWriteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NameCardReaderServlet</servlet-name>
+    <url-pattern>/namecard/NameCardReaderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NameCardConvoyReaderServlet</servlet-name>
+    <url-pattern>/namecard/NameCardConvoyReaderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AttendanceWriteServlet</servlet-name>
+    <url-pattern>/attendance/AttendanceWriteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CommonReaderServlet</servlet-name>
+    <url-pattern>/common/CommonReaderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PickUpRecordServlet</servlet-name>
+    <url-pattern>/pickuprecord/PickUpRecordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ChickenBoxServlet</servlet-name>
+    <url-pattern>/ChickenBoxServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileManagerServlet</servlet-name>
+    <url-pattern>/file/FileManagerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/UserLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SystemStatisticsAction</servlet-name>
+    <url-pattern>/system/SystemStatisticsAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HighchartsServlet</servlet-name>
+    <url-pattern>/HighchartsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SeattingPlanServlet</servlet-name>
+    <url-pattern>/SeattingPlanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryTimeTaskScheduleServlet</servlet-name>
+    <url-pattern>/QueryTimeTaskScheduleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SeatServlet</servlet-name>
+    <url-pattern>/SeatServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IvrServlet</servlet-name>
+    <url-pattern>/IvrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SeatAutoServlet</servlet-name>
+    <url-pattern>/SeatAutoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryConsultantTitleServlet</servlet-name>
+    <url-pattern>/QueryConsultantTitleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryConsultantProTitleServlet</servlet-name>
+    <url-pattern>/QueryConsultantProTitleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryStationeryProductServlet</servlet-name>
+    <url-pattern>/QueryStationeryProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryMarketPremiumServlet</servlet-name>
+    <url-pattern>/QueryMarketPremiumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryPibaBookServlet</servlet-name>
+    <url-pattern>/QueryPibaBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryEPaymentListServlet</servlet-name>
+    <url-pattern>/QueryEPaymentListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryAttachmentServlet</servlet-name>
+    <url-pattern>/QueryAttachmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MedicalServlet</servlet-name>
+    <url-pattern>/MedicalServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+<!-- 配置受保护域，只有Tomcat管理员才能察看连接池的信息 -->  
+<security-constraint>  
+  <web-resource-collection>  
+      <web-resource-name>Admins</web-resource-name>   
+      <url-pattern>/convoyadmin</url-pattern>  
+  </web-resource-collection>  
+  <auth-constraint>  
+     <role-name>manager-gui</role-name>   
+     </auth-constraint>  
+  </security-constraint>  
+<!-- 
+ <security-role>
+      <role-name>manager-gui</role-name>
+  </security-role>
+   -->
+  <login-config> 
+    <auth-method>BASIC</auth-method> 
+   <!--  <realm-name>访问控制</realm-name>  -->
+</login-config> 
+  
+  
+  <!-- System End -->
+  
+ <welcome-file-list>
+  <welcome-file>/login.jsp</welcome-file>
+ </welcome-file-list>
+
+
+
+</web-app>
